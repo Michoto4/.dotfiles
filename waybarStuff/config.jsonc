@@ -1,0 +1,150 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    //"height": 40, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+    // Choose the order of the modules
+
+
+    // LEFT SIDE
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "mpris"
+    ],
+
+    // MIDDLE
+    "modules-center": [
+        "clock",
+        "custom/weather"
+    ],
+
+    // RIGHT SIDE
+    "modules-right": [
+        "wireplumber",
+        "bluetooth",
+        "hyprland/language",
+        "keyboard-state",
+        "cpu",
+        "memory",
+        "tray"
+    ],
+
+    // MODULES
+
+    "custom/launcher":{
+        "format": " ",
+        "on-click": "rofi -show drun",
+        "on-click-right": "killall rofi"
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format":"{name}",
+        "format-icons": {
+            "urgent": "",
+            "active": "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "*": 3,
+            "HDMI-A-2": 1
+        }
+    },
+
+    "mpris": {
+        "format": "  {status_icon} {dynamic}",
+            "interval": 1,
+            "dynamic-len": 60,
+        "status-icons": {
+            "playing": "▶",
+            "paused": "⏸",
+            "stopped": ""
+        },
+        "dynamic-order": ["artist", "title"]
+    },
+
+    "clock": {
+        "timezone": "Europe/Warsaw",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%a, %d %b, %H:%M}",
+        "interval": 1
+    },
+
+    "custom/weather": {
+        "exec": "/home/michoto/.config/waybarStuff/scripts/weather.sh",
+        "interval": 600, // aktualizacja co 10 min
+        "return-type": "string",
+        "on-click": "xdg-open 'https://www.accuweather.com/pl/pl/gda%C5%84sk/275174/weather-forecast/275174'"
+    },
+
+    "wireplumber": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}% ",
+        "format-bluetooth-muted": " {icon} ",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "bluetooth": {
+        "format": "󰂲",
+        "format-on": "{icon}",
+        "format-off": "{icon}", 
+        "format-connected":"{icon}",
+        "format-icons":{
+            "on":"󰂯",
+            "off": "󰂲",
+            "connected": "󰂱"
+            },
+        "on-click": "blueman-manager",
+        "tooltip-format-connected":"{device_enumerate}"
+    },
+
+    "hyprland/language": {
+        "format": "{} 🖮",
+        "min-length": 5,
+        "tooltip": false
+    },
+
+    "keyboard-state": {
+        //"numlock": true,
+        "capslock": true,
+        "format": "{name} {icon} ",
+        "format-icons": {
+            "locked": " ",
+            "unlocked": " "
+        }
+    },
+
+    "cpu": {
+        "format": "{usage}%  ",
+        "tooltip": true
+    },
+
+    "memory": {
+        "format": "{}% "
+    },
+
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    }
+}

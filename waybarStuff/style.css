@@ -1,0 +1,176 @@
+/* kolor podstawowy: #3d7448 / rgb(61, 116, 72) */
+/* kolor ciemniejszy: #2f5a38 / rgb(47, 90, 56) */
+
+*{
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "Iosevka Nerd Font", "Noto Emoji", NotoSans, sans-serif, FontAwesome, Arial;
+    font-size: 20px;
+}
+
+.color-picker { /* JUST A COLOR PICKER CUZ IN "DEFINE-COLOR" IT DOESN'T WORK */
+    background-color: rgb(57, 95, 66); /* main */
+    background-color: rgb(44, 73, 50); /* hover */
+}
+
+@define-color main rgb(57, 95, 66);
+@define-color hover rgb(44, 73, 50);
+
+.modules-left,
+.modules-center,
+.modules-right
+{
+    margin-top: 10px;
+}
+
+window#waybar {
+    background-color: rgba(4, 10, 2, 0);
+    color: #eeeeee;
+    transition-property: background-color;
+    transition-duration: .5s;
+    margin-top: 5px;
+}
+
+#custom-launcher {
+	margin-left: 10px;
+    margin-right: 0px;
+    padding: 0px 10px;
+	border-radius: 10px 0px 0px 10px;
+	transition: none;
+    background-color: @main;
+    transition-property: background-color;
+    transition-duration: .3s;
+}
+#custom-launcher:hover {
+    background-color: @hover;
+}
+
+#wireplumber:hover {
+    background-color: @hover;
+}
+
+/* ---- WORKSPACES ---- */
+#workspaces {
+    background-color: @main;
+    border-radius: 0px 10px 10px 0px;
+    padding-right: 10px;
+    margin-right: 10px;
+    border: none;
+}
+
+#workspaces button {
+    font-weight: 400;
+    padding: 0px 5px;
+    color: #ffffff;
+    transition-property: font-weight, background-color;
+    transition-duration: .3s;
+    border: none;
+}
+
+#workspaces button:hover {
+    font-weight: 900;
+    background: @hover;
+    border: none;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#workspaces button.active {
+    font-weight: 900;
+    background-color: @hover;
+    border: none;
+}
+/* ---- WORKSPACES ---- */
+
+
+
+#mpris {
+    background-color: @main;
+    margin-right: 10px;
+    padding: 0px 12px;
+    border-radius: 10px;
+}
+
+#clock {
+    background-color: @main;
+    border-radius: 15px 0px 0px 15px;
+    padding: 0px 12px;
+    padding-right: 0px;
+}
+
+#custom-weather {
+    background-color: @main;
+    border-radius: 0px 15px 15px 0px;
+    padding: 0px 12px;
+}
+
+#language {
+    background-color: @main;
+    margin-right: 0px;
+    padding: 0px 12px;
+    border-radius: 10px 0px 0px 10px;
+    padding-top: 5px;
+}
+
+#keyboard-state {
+    border-radius: 0px 0px 0px 0px;
+    background-color: @main;
+    margin-right: 10px;
+    padding: 0px 12px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+#keyboard-state > .locked {
+    color: #f53c3c;
+}
+
+#wireplumber {
+    background-color: @main;
+    margin-right: 0px;
+    padding-right: 10px;
+    padding-left: 12px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+#bluetooth {
+    background-color: @main;
+    margin-right: 10px;
+    padding-right: 15px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+#cpu {
+    background-color: @main;
+    margin-right: 0px;
+    padding: 0px 12px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+#memory {
+    background-color: @main;
+    margin-right: 10px;
+    padding-right: 20px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+#wireplumber.muted {
+    background-color: #f53c3c;
+}
+
+
+#tray {
+    background-color: @main;
+    margin-right: 10px;
+    padding: 0px 12px;
+    border-radius: 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
